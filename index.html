@@ -1,0 +1,388 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>3분 파이어 가능 나이 계산</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="customer-page">
+    <header class="topbar">
+      <a class="brand" href="index.html">FIRE Planner</a>
+    </header>
+
+    <main class="shell paged-shell">
+      <section class="journey-layout">
+        <aside class="journey-panel">
+          <p class="eyebrow">3분 익명 계산</p>
+          <h1>나는 몇 살에 경제적 자유가 가능할까?</h1>
+          <p class="lead-copy">
+            한 번에 한 가지씩만 입력합니다. 먼저 연락처 없이 파이어 예상 구간을 확인하고,
+            상세분석이 필요할 때만 추가 정보를 남기세요.
+          </p>
+
+          <div class="hero-visual">
+            <img id="journeyImage" src="assets/fire-roadmap.svg" alt="파이어 계산 흐름 이미지" />
+          </div>
+
+          <ol class="journey-steps" aria-label="진행 단계">
+            <li class="active" data-nav-step="1">기본 계산</li>
+            <li data-nav-step="7">요약 결과</li>
+            <li data-nav-step="8">상세분석</li>
+            <li data-nav-step="13">상세분석 신청</li>
+          </ol>
+        </aside>
+
+        <section class="flow-panel paged-flow" aria-live="polite">
+          <div class="step-status">
+            <span id="stepKicker">기본 계산</span>
+            <strong id="stepCounter">1 / 13</strong>
+          </div>
+          <div class="progress-line paged-progress">
+            <span id="progressFill"></span>
+          </div>
+
+          <form id="fireForm">
+            <section class="step active question-page" data-step="1" data-stage="basic" data-image="assets/fire-roadmap.svg">
+              <div class="question-copy">
+                <span class="question-number">01</span>
+                <h2>현재 나이는 어떻게 되나요?</h2>
+                <p class="helper">파이어 예상 나이를 계산하려면 지금 출발점을 먼저 잡아야 합니다.</p>
+              </div>
+              <label class="single-field">
+                <span>현재 나이</span>
+                <input name="currentAge" type="number" min="20" max="70" value="35" required />
+                <small>만 나이가 아니라 평소 쓰는 나이 기준으로 입력해도 괜찮습니다.</small>
+              </label>
+              <div class="button-row">
+                <button class="primary-button" type="button" data-next="2">다음</button>
+              </div>
+            </section>
+
+            <section class="step question-page" data-step="2" data-stage="basic" data-image="assets/fire-roadmap.svg">
+              <div class="question-copy">
+                <span class="question-number">02</span>
+                <h2>몇 살쯤 파이어를 목표로 보시나요?</h2>
+                <p class="helper">정확한 목표가 없어도 됩니다. 지금 마음속 기준을 넣어보세요.</p>
+              </div>
+              <label class="single-field">
+                <span>목표 파이어 나이</span>
+                <input name="targetFireAge" type="number" min="30" max="80" value="50" required />
+              </label>
+              <div class="button-row">
+                <button class="secondary-button" type="button" data-prev="1">이전</button>
+                <button class="primary-button" type="button" data-next="3">다음</button>
+              </div>
+            </section>
+
+            <section class="step question-page" data-step="3" data-stage="basic" data-image="assets/money-flow.svg">
+              <div class="question-copy">
+                <span class="question-number">03</span>
+                <h2>파이어 후 필요한 월 생활비는 어느 정도인가요?</h2>
+                <p class="helper">주거비, 식비, 교통비, 취미비까지 포함한 목표 생활비입니다.</p>
+              </div>
+              <label class="single-field">
+                <span>목표 월 생활비</span>
+                <input name="targetMonthlyExpense" type="number" min="50" step="10" value="300" required />
+                <small>만원 단위</small>
+              </label>
+              <div class="button-row">
+                <button class="secondary-button" type="button" data-prev="2">이전</button>
+                <button class="primary-button" type="button" data-next="4">다음</button>
+              </div>
+            </section>
+
+            <section class="step question-page" data-step="4" data-stage="basic" data-image="assets/money-flow.svg">
+              <div class="question-copy">
+                <span class="question-number">04</span>
+                <h2>현재 준비된 자산은 어느 정도인가요?</h2>
+                <p class="helper">예금, 투자금, 연금계좌 등 파이어 목표에 쓸 수 있는 금액 기준입니다.</p>
+              </div>
+              <label class="single-field">
+                <span>현재 준비자산</span>
+                <input name="currentAssets" type="number" min="0" step="100" value="5000" required />
+                <small>만원 단위</small>
+              </label>
+              <div class="button-row">
+                <button class="secondary-button" type="button" data-prev="3">이전</button>
+                <button class="primary-button" type="button" data-next="5">다음</button>
+              </div>
+            </section>
+
+            <section class="step question-page" data-step="5" data-stage="basic" data-image="assets/money-flow.svg">
+              <div class="question-copy">
+                <span class="question-number">05</span>
+                <h2>매달 얼마를 투자 또는 저축할 수 있나요?</h2>
+                <p class="helper">파이어 도달 시점에 가장 크게 영향을 주는 입력값입니다.</p>
+              </div>
+              <label class="single-field">
+                <span>월 투자 가능액</span>
+                <input name="monthlyInvestment" type="number" min="0" step="10" value="150" required />
+                <small>만원 단위</small>
+              </label>
+              <div class="button-row">
+                <button class="secondary-button" type="button" data-prev="4">이전</button>
+                <button class="primary-button" type="button" data-next="6">다음</button>
+              </div>
+            </section>
+
+            <section class="step question-page" data-step="6" data-stage="basic" data-image="assets/result-dashboard.svg">
+              <div class="question-copy">
+                <span class="question-number">06</span>
+                <h2>기대 연수익률은 어느 정도로 볼까요?</h2>
+                <p class="helper">처음 계산은 보수적으로 보는 게 좋습니다. 결과는 확정값이 아닌 예상 구간입니다.</p>
+              </div>
+              <label class="single-field">
+                <span>기대 연수익률</span>
+                <select name="expectedReturn" required>
+                  <option value="3">3% 보수적</option>
+                  <option value="5" selected>5% 기준</option>
+                  <option value="7">7% 적극적</option>
+                  <option value="9">9% 공격적</option>
+                </select>
+              </label>
+              <div class="button-row">
+                <button class="secondary-button" type="button" data-prev="5">이전</button>
+                <button class="primary-button" type="button" data-next="7" data-action="calculate-basic">요약 결과 보기</button>
+              </div>
+            </section>
+
+            <section class="step result-page" data-step="7" data-stage="result" data-image="assets/result-dashboard.svg">
+              <div class="question-copy">
+                <span class="question-number">결과</span>
+                <h2>요약 계산 결과</h2>
+                <p class="helper">지금 입력값만 기준으로 본 1차 결과입니다. 상세분석에서는 현금흐름을 더 반영합니다.</p>
+              </div>
+              <div class="result-band">
+                <span class="result-label" id="resultLevel">계산 대기</span>
+                <strong id="resultAgeRange">입력값을 확인해주세요</strong>
+                <p id="resultSummary"></p>
+              </div>
+              <div class="metric-row">
+                <div>
+                  <span>목표자산 구간</span>
+                  <strong id="resultTargetAssets">-</strong>
+                </div>
+                <div>
+                  <span>목표 대비 현재 준비율</span>
+                  <strong id="resultReadiness">-</strong>
+                </div>
+              </div>
+              <div class="focus-box">
+                <span>핵심 변수</span>
+                <p id="resultVariables">-</p>
+              </div>
+              <div class="button-row">
+                <button class="secondary-button" type="button" data-prev="6">이전</button>
+                <button class="primary-button" type="button" data-next="8">상세분석 이어가기</button>
+              </div>
+            </section>
+
+            <section class="step question-page" data-step="8" data-stage="advanced" data-image="assets/money-flow.svg">
+              <div class="question-copy">
+                <span class="question-number">07</span>
+                <h2>현재 월소득은 어느 정도인가요?</h2>
+                <p class="helper">세후 기준으로 보면 좋습니다. 투자 가능액과 고정비가 현실적인지 함께 확인합니다.</p>
+              </div>
+              <label class="single-field">
+                <span>현재 월소득</span>
+                <input name="monthlyIncome" type="number" min="0" step="10" value="400" required />
+                <small>만원 단위</small>
+              </label>
+              <div class="button-row">
+                <button class="secondary-button" type="button" data-prev="7">이전</button>
+                <button class="primary-button" type="button" data-next="9">다음</button>
+              </div>
+            </section>
+
+            <section class="step question-page" data-step="9" data-stage="advanced" data-image="assets/money-flow.svg">
+              <div class="question-copy">
+                <span class="question-number">08</span>
+                <h2>월 고정비는 어느 정도인가요?</h2>
+                <p class="helper">가족상황은 묻지 않고, 실제로 매달 빠지는 현금흐름만 봅니다.</p>
+              </div>
+              <label class="single-field">
+                <span>월 고정비</span>
+                <input name="fixedMonthlyCost" type="number" min="0" step="10" value="200" required />
+                <small>만원 단위</small>
+              </label>
+              <div class="button-row">
+                <button class="secondary-button" type="button" data-prev="8">이전</button>
+                <button class="primary-button" type="button" data-next="10">다음</button>
+              </div>
+            </section>
+
+            <section class="step question-page" data-step="10" data-stage="advanced" data-image="assets/money-flow.svg">
+              <div class="question-copy">
+                <span class="question-number">09</span>
+                <h2>매월 대출 상환액이 있나요?</h2>
+                <p class="helper">대출 상환액은 파이어 속도와 비상금 기준에 영향을 줍니다.</p>
+              </div>
+              <label class="single-field">
+                <span>월 대출 상환액</span>
+                <input name="monthlyDebtPayment" type="number" min="0" step="10" value="0" required />
+                <small>만원 단위</small>
+              </label>
+              <div class="button-row">
+                <button class="secondary-button" type="button" data-prev="9">이전</button>
+                <button class="primary-button" type="button" data-next="11">다음</button>
+              </div>
+            </section>
+
+            <section class="step question-page" data-step="11" data-stage="advanced" data-image="assets/fire-roadmap.svg">
+              <div class="question-copy">
+                <span class="question-number">10</span>
+                <h2>은퇴 후 추가 월소득이 있나요?</h2>
+                <p class="helper">임대소득, 사업소득, 배당, 이자 등 지속 가능성이 있는 소득 기준입니다.</p>
+              </div>
+              <label class="single-field">
+                <span>은퇴 후 추가 월소득</span>
+                <input name="additionalMonthlyIncome" type="number" min="0" step="10" value="0" required />
+                <small>만원 단위</small>
+              </label>
+              <div class="button-row">
+                <button class="secondary-button" type="button" data-prev="10">이전</button>
+                <button class="primary-button" type="button" data-next="12">다음</button>
+              </div>
+            </section>
+
+            <section class="step question-page" data-step="12" data-stage="advanced" data-image="assets/fire-roadmap.svg">
+              <div class="question-copy">
+                <span class="question-number">11</span>
+                <h2>예상 연금 월소득은 어느 정도인가요?</h2>
+                <p class="helper">국민연금, 퇴직연금, 개인연금 등 예상 가능한 월수령액입니다.</p>
+              </div>
+              <label class="single-field">
+                <span>예상 연금 월소득</span>
+                <input name="expectedPensionIncome" type="number" min="0" step="10" value="80" required />
+                <small>만원 단위</small>
+              </label>
+              <div class="button-row">
+                <button class="secondary-button" type="button" data-prev="11">이전</button>
+                <button class="primary-button" type="button" data-next="13">상세 결과 신청</button>
+              </div>
+            </section>
+
+            <section class="step question-page" data-step="13" data-stage="contact" data-image="assets/result-dashboard.svg">
+              <div class="question-copy">
+                <span class="question-number">신청</span>
+                <h2>상세 결과 해석을 받을 정보를 남겨주세요</h2>
+                <p class="helper">입력하신 자료와 계산 결과를 바탕으로 상세 해석 안내를 도와드립니다.</p>
+              </div>
+              <div class="field-grid contact-grid">
+                <label>
+                  <span>이름</span>
+                  <input name="name" type="text" maxlength="40" placeholder="김민수" required />
+                </label>
+                <label>
+                  <span>연락처</span>
+                  <input name="phone" type="tel" placeholder="01012345678" required />
+                </label>
+                <label class="wide">
+                  <span>연락 가능 시간</span>
+                  <input name="preferredTime" type="text" placeholder="평일 오후 6시 이후" />
+                </label>
+              </div>
+              <div class="consent-box">
+                <label class="check-line all-consent-line">
+                  <input name="allConsent" type="checkbox" />
+                  <span class="consent-copy">
+                    <strong>전체 동의하기</strong>
+                    <small>필수 동의와 선택 동의를 한 번에 선택합니다. 선택 항목은 개별 해제할 수 있습니다.</small>
+                  </span>
+                </label>
+                <label class="check-line">
+                  <input name="privacyConsent" type="checkbox" required />
+                  <span class="consent-copy">
+                    <strong><em class="consent-badge required">필수</em> 개인정보 수집 및 이용 동의</strong>
+                    <small>파이어 진단 결과와 상세분석 안내를 제공하기 위해 필요합니다.</small>
+                  </span>
+                </label>
+                <label class="check-line">
+                  <input name="thirdPartyConsent" type="checkbox" required />
+                  <span class="consent-copy">
+                    <strong><em class="consent-badge required">필수</em> 개인정보 제3자 제공 동의</strong>
+                    <small>상세분석 안내와 전문 상담 진행을 위해 제휴 상담사에게 필요한 정보가 제공됩니다.</small>
+                  </span>
+                </label>
+                <label class="check-line">
+                  <input name="marketingConsent" type="checkbox" />
+                  <span class="consent-copy">
+                    <strong><em class="consent-badge optional">선택</em> 마케팅 정보 수신 동의</strong>
+                    <small>상담 이후 재무 점검, 관련 상품, 혜택 및 이벤트 안내를 받을 수 있습니다.</small>
+                  </span>
+                </label>
+                <label class="check-line">
+                  <input name="educationConsent" type="checkbox" />
+                  <span class="consent-copy">
+                    <strong><em class="consent-badge optional">선택</em> 교육자료 안내 수신 동의</strong>
+                    <small>경제뉴스, 파이어 교육자료, 투자/자산관리 자료 안내를 받을 수 있습니다.</small>
+                  </span>
+                </label>
+                <details class="terms-panel">
+                  <summary>개인정보 및 상담 안내 약관 보기</summary>
+                  <div class="terms-block">
+                    <strong>운영 및 문의</strong>
+                    <p>광고 및 개인정보 처리자: 이용효<br />문의: 010-8197-6916</p>
+                  </div>
+                  <div class="terms-block">
+                    <strong>개인정보 수집 및 이용</strong>
+                    <p>
+                      수집 항목: 이름, 연락처, 연락 가능 시간, 나이, 목표 파이어 나이, 목표 월생활비,
+                      현재 준비자산, 월 투자 가능액, 기대수익률, 월소득, 고정비, 대출상환액,
+                      추가소득, 예상 연금소득, 진단 결과, 유입 정보<br />
+                      이용 목적: 파이어 진단 결과 제공, 상세분석 안내, 입력 정보 확인, 상담 일정 조율<br />
+                      보유 기간: 동의일로부터 5년 또는 동의 철회 시까지
+                    </p>
+                  </div>
+                  <div class="terms-block">
+                    <strong>개인정보 제3자 제공</strong>
+                    <p>
+                      제공받는 자: 이용효와 상담 제휴 관계에 있는 전문 상담사, 금융상담 제휴사,
+                      보험대리점 또는 제휴 상담 기관<br />
+                      제공 목적: 파이어 진단 결과 안내, 재무설계 상담, 상담 일정 조율,
+                      보장 분석 및 금융상품 선택지 안내<br />
+                      제공 항목: 이름, 연락처, 연락 가능 시간, 계산 입력값, 진단 결과<br />
+                      보유 기간: 제공일로부터 5년 또는 동의 철회 시까지
+                    </p>
+                  </div>
+                  <div class="terms-block">
+                    <strong>마케팅 정보 및 교육자료 안내</strong>
+                    <p>
+                      수신 방법: 전화, 문자, 카카오 알림톡, 이메일<br />
+                      이용 목적: 재무 점검, 파이어 교육자료, 경제뉴스, 관련 상품, 혜택 및 이벤트 안내<br />
+                      보유 기간: 동의일로부터 5년 또는 수신 거부 시까지
+                    </p>
+                  </div>
+                </details>
+                <p>
+                  선택 동의는 거부해도 상세분석 신청이 가능하며, 이후 언제든 수신 거부를 요청할 수 있습니다.
+                </p>
+              </div>
+              <div class="button-row">
+                <button class="secondary-button" type="button" data-prev="12">이전</button>
+                <button class="primary-button" type="submit">상세분석 신청하기</button>
+              </div>
+            </section>
+
+            <section class="step result-page" data-step="14" data-stage="done" data-image="assets/result-dashboard.svg">
+              <div class="question-copy">
+                <span class="question-number">완료</span>
+                <h2>신청이 저장되었습니다</h2>
+                <p class="helper">
+                  신청이 접수되었습니다. 입력하신 내용을 기준으로 상세 결과 해석 안내를 도와드리겠습니다.
+                </p>
+              </div>
+              <a class="primary-link" href="index.html">처음으로 돌아가기</a>
+            </section>
+          </form>
+        </section>
+      </section>
+    </main>
+
+    <script src="keys/lead-public-key.js"></script>
+    <script src="config.js"></script>
+    <script src="crypto-utils.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
