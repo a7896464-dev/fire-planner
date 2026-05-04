@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" role="img" aria-labelledby="title desc">
+  <title id="title">FIRE roadmap</title>
+  <desc id="desc">A clean roadmap illustration for financial independence planning.</desc>
+  <defs>
+    <linearGradient id="sky" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#dff8ef"/>
+      <stop offset="0.54" stop-color="#fff7df"/>
+      <stop offset="1" stop-color="#f7dfcf"/>
+    </linearGradient>
+    <linearGradient id="road" x1="0" x2="1">
+      <stop offset="0" stop-color="#0f766e"/>
+      <stop offset="1" stop-color="#1d4ed8"/>
+    </linearGradient>
+  </defs>
+  <rect width="960" height="600" fill="url(#sky)"/>
+  <circle cx="760" cy="130" r="62" fill="#f5c542"/>
+  <path d="M0 402 C176 334 318 344 462 396 C620 454 760 470 960 386 L960 600 L0 600 Z" fill="#d7eadf"/>
+  <path d="M0 496 C190 430 334 426 486 486 C638 546 782 544 960 466 L960 600 L0 600 Z" fill="#b9d8cd"/>
+  <path d="M118 600 C188 484 268 404 390 344 C510 285 658 254 842 228" fill="none" stroke="url(#road)" stroke-width="54" stroke-linecap="round"/>
+  <path d="M118 600 C188 484 268 404 390 344 C510 285 658 254 842 228" fill="none" stroke="#ffffff" stroke-width="7" stroke-linecap="round" stroke-dasharray="28 28"/>
+  <g transform="translate(678 164)">
+    <rect x="0" y="0" width="170" height="112" rx="8" fill="#ffffff" stroke="#0f766e" stroke-width="5"/>
+    <path d="M26 80 L58 48 L88 66 L134 24" fill="none" stroke="#0f766e" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="134" cy="24" r="12" fill="#c2410c"/>
+  </g>
+  <g transform="translate(188 314)">
+    <rect x="0" y="0" width="170" height="126" rx="8" fill="#ffffff" stroke="#1f2933" stroke-width="4"/>
+    <rect x="22" y="24" width="126" height="16" rx="8" fill="#0f766e"/>
+    <rect x="22" y="56" width="86" height="16" rx="8" fill="#f5c542"/>
+    <rect x="22" y="88" width="112" height="16" rx="8" fill="#1d4ed8"/>
+  </g>
+  <g transform="translate(94 96)">
+    <text x="0" y="0" font-family="Segoe UI, Arial, sans-serif" font-size="42" font-weight="800" fill="#0b4d47">FIRE</text>
+    <text x="0" y="46" font-family="Segoe UI, Arial, sans-serif" font-size="23" font-weight="700" fill="#667085">Plan by numbers</text>
+  </g>
+</svg>

@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" role="img" aria-labelledby="title desc">
+  <title id="title">Money flow</title>
+  <desc id="desc">Cash flow and monthly investment planning illustration.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#f0f7f4"/>
+      <stop offset="1" stop-color="#fff7ed"/>
+    </linearGradient>
+  </defs>
+  <rect width="960" height="600" fill="url(#bg)"/>
+  <rect x="126" y="116" width="708" height="368" rx="22" fill="#ffffff" stroke="#d9ded8" stroke-width="4"/>
+  <g transform="translate(178 168)">
+    <rect x="0" y="0" width="180" height="92" rx="10" fill="#ecfdf5" stroke="#0f766e" stroke-width="4"/>
+    <text x="28" y="38" font-family="Segoe UI, Arial, sans-serif" font-size="22" font-weight="800" fill="#0b4d47">Income</text>
+    <text x="28" y="68" font-family="Segoe UI, Arial, sans-serif" font-size="18" font-weight="700" fill="#667085">monthly</text>
+  </g>
+  <g transform="translate(600 168)">
+    <rect x="0" y="0" width="180" height="92" rx="10" fill="#fff7ed" stroke="#c2410c" stroke-width="4"/>
+    <text x="28" y="38" font-family="Segoe UI, Arial, sans-serif" font-size="22" font-weight="800" fill="#9a3412">Expense</text>
+    <text x="28" y="68" font-family="Segoe UI, Arial, sans-serif" font-size="18" font-weight="700" fill="#667085">fixed cost</text>
+  </g>
+  <g transform="translate(390 318)">
+    <rect x="0" y="0" width="180" height="92" rx="10" fill="#eff6ff" stroke="#1d4ed8" stroke-width="4"/>
+    <text x="28" y="38" font-family="Segoe UI, Arial, sans-serif" font-size="22" font-weight="800" fill="#1d4ed8">Invest</text>
+    <text x="28" y="68" font-family="Segoe UI, Arial, sans-serif" font-size="18" font-weight="700" fill="#667085">for FIRE</text>
+  </g>
+  <path d="M358 214 C424 214 470 252 480 318" fill="none" stroke="#0f766e" stroke-width="10" stroke-linecap="round"/>
+  <path d="M600 214 C536 214 492 252 480 318" fill="none" stroke="#c2410c" stroke-width="10" stroke-linecap="round"/>
+  <path d="M480 410 C480 454 512 484 568 492" fill="none" stroke="#1d4ed8" stroke-width="10" stroke-linecap="round"/>
+  <circle cx="588" cy="494" r="18" fill="#f5c542" stroke="#1f2933" stroke-width="4"/>
+  <circle cx="640" cy="482" r="18" fill="#f5c542" stroke="#1f2933" stroke-width="4"/>
+  <circle cx="692" cy="466" r="18" fill="#f5c542" stroke="#1f2933" stroke-width="4"/>
+  <g transform="translate(124 78)">
+    <text x="0" y="0" font-family="Segoe UI, Arial, sans-serif" font-size="36" font-weight="800" fill="#1f2933">Cash flow first</text>
+  </g>
+</svg>
